@@ -1,9 +1,12 @@
 package com.example.webservices.restwebservices.user;
 
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class UserDaoService {
     private  static List<User> users = new ArrayList<>();
 
@@ -15,5 +18,9 @@ public class UserDaoService {
 
     public List<User> findAllUsers() {
         return users;
+    }
+
+    public User findUser(int id) {
+        return users.stream().filter(user -> user.getId() == id).findFirst().get();
     }
 }

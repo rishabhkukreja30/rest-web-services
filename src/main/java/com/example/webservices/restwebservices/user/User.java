@@ -1,28 +1,24 @@
 package com.example.webservices.restwebservices.user;
 
-import org.springframework.stereotype.Component;
-
 import java.time.LocalDate;
 
-@Component
 public class User {
 
-    private int id;
+    private Integer id;
     private String name;
-    private LocalDate date;
+    private LocalDate dateOfBirth;
 
-    public User(int id, String name, LocalDate date) {
-        super();
+    public User(Integer id, String name, LocalDate dateOfBirth) {
         this.id = id;
         this.name = name;
-        this.date = date;
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -34,19 +30,19 @@ public class User {
         this.name = name;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", date=" + date +
+                ", dateOfBirth=" + dateOfBirth +
                 '}';
     }
 }

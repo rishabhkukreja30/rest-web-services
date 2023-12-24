@@ -24,7 +24,7 @@ public class UserDaoService {
     public User findUser(int id) {
         User foundUser = users.stream().filter(user -> user.getId() == id).findFirst().orElse(null);
         if (foundUser == null) {
-            throw new  UserNotFoundException("This id: " + id + " does not exist!");
+            throw new  UserNotFoundException("This user: " + id + " does not exist!");
         }
         return foundUser;
     }

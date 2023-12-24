@@ -22,7 +22,11 @@ public class UserDaoService {
     }
 
     public User findUser(int id) {
-        return users.stream().filter(user -> user.getId() == id).findFirst().get();
+        User foundUser = users.stream().filter(user -> user.getId() == id).findFirst().orElse(null);
+        if (foundUser == null) {
+            throw new  UserNotFoundException("This id: " + id + " does not exist!");
+        }
+        return foundUser;
     }
 
     public User saveUser(User user) {

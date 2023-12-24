@@ -34,4 +34,9 @@ public class UserDaoService {
         users.add(user);
         return user;
     }
+
+    public void deleteById(int id) {
+        User deletedUser = users.stream().filter(user -> user.getId() == id).findFirst().get();
+        users.remove(deletedUser);
+    }
 }

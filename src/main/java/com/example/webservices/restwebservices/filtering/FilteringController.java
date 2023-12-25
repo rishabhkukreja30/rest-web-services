@@ -14,7 +14,7 @@ public class FilteringController {
         return new SomeBean("value1", "value2", "value3");
     }
 
-    @GetMapping(path = "/filterings")
+    @GetMapping(path = "/filtering-list")
     public List<SomeBean> getAllSomeBean() {
         return Arrays.asList(new SomeBean("value1", "value2", "value3"),
                 new SomeBean("value4", "value5", "value6"));

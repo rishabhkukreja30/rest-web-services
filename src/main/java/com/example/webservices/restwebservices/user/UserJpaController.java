@@ -1,5 +1,6 @@
 package com.example.webservices.restwebservices.user;
 
+import com.example.webservices.restwebservices.post.Post;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,5 +46,15 @@ public class UserJpaController {
     @DeleteMapping(path = "/jpa/users/{id}")
     public void deleteUser(@PathVariable int id) {
         userRepository.deleteById(id);
+    }
+
+    @GetMapping(path = "/jpa/users/{id}/posts")
+    public List<Post> retreivePostsForUser(@PathVariable int id) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isEmpty()) {
+            throw new  UserNotFoundException("This user: " + id + " does not exist!");
+        }
+
+        return user.get().getPosts();
     }
 }

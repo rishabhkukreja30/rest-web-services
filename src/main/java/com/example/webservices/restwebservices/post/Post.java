@@ -14,6 +14,8 @@ public class Post {
     @ManyToOne
     private User user;
 
+    public Post() {}
+
     public Post(Integer id, String description) {
         this.id = id;
         this.description = description;
